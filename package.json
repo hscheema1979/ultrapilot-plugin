@@ -1,7 +1,7 @@
 {
   "name": "ultrapilot-plugin",
   "version": "1.0.0",
-  "description": "Claude Code plugin for autonomous development workflows - The ONE plugin you need",
+  "description": "Claude Code plugin for autonomous development workflows - Agents, skills, adapters, and plugins",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -17,7 +17,9 @@
     "multi-agent",
     "autonomous-development",
     "ultrapilot",
-    "plugin"
+    "plugin",
+    "skills",
+    "agents"
   ],
   "author": "Ultrapilot Contributors",
   "license": "MIT",
