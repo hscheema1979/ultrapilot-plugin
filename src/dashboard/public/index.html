@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraPilot Mission Control</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                        <path d="M20 10 L20 30 M10 20 L30 20" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <h1>Mission Control</h1>
+                </div>
+                <div class="status-badge" id="connection-status">
+                    <span class="status-dot"></span>
+                    Connected
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Metrics Grid -->
+            <section class="metrics-section">
+                <div class="metrics-grid">
+                    <!-- Total Tasks -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Total Tasks</span>
+                            <svg class="metric-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M9 2H5a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="metric-value" id="total-tasks">0</div>
+                        <div class="metric-change" id="tasks-change">All queues</div>
+                    </div>
+
+                    <!-- Active Agents -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Active Agents</span>
+                            <svg class="metric-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M4 17c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="metric-value" id="active-agents">0</div>
+                        <div class="metric-change" id="agents-change">Currently running</div>
+                    </div>
+
+                    <!-- Avg Task Duration -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Avg Duration</span>
+                            <svg class="metric-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 6 L10 10 L13 10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="metric-value" id="avg-duration">0m</div>
+                        <div class="metric-change" id="duration-change">Per task</div>
+                    </div>
+
+                    <!-- Throughput -->
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-label">Throughput</span>
+                            <svg class="metric-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3 17l4-4 4 4 4-4 4 4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="metric-value" id="throughput">0</div>
+                        <div class="metric-change" id="throughput-change">Tasks/hour</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="two-column">
+                <!-- Task Queues -->
+                <section class="queues-section">
+                    <h2>Task Queues</h2>
+                    <div class="queues-list" id="queues-list">
+                        <!-- Queues populated by JS -->
+                    </div>
+                </section>
+
+                <!-- Agent Status -->
+                <section class="agents-section">
+                    <h2>Agent Status</h2>
+                    <div class="agents-list" id="agents-list">
+                        <!-- Agents populated by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Health Indicators -->
+            <section class="health-section">
+                <h2>System Health</h2>
+                <div class="health-grid" id="health-grid">
+                    <!-- Health indicators populated by JS -->
+                </div>
+            </section>
+
+            <!-- Autoloop Status -->
+            <section class="autoloop-section">
+                <h2>Autoloop Daemon</h2>
+                <div class="autoloop-status" id="autoloop-status">
+                    <!-- Autoloop status populated by JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <span>Last updated: <span id="last-update">Never</span></span>
+                <span>UltraPilot v1.0.0</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

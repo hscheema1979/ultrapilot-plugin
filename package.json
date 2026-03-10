@@ -1,0 +1,53 @@
+{
+  "name": "ultrapilot-plugin",
+  "version": "1.0.0",
+  "description": "Claude Code plugin for autonomous development workflows - The ONE plugin you need",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "vitest",
+    "lint": "eslint src/",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "claude-code",
+    "agent-orchestration",
+    "multi-agent",
+    "autonomous-development",
+    "ultrapilot",
+    "plugin"
+  ],
+  "author": "Ultrapilot Contributors",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "chokidar": "^4.0.1",
+    "glob": "^13.0.6",
+    "js-yaml": "^4.1.1",
+    "lru-cache": "^11.2.6",
+    "uuid": "^9.0.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/js-yaml": "^4.0.9",
+    "@types/lru-cache": "^7.10.9",
+    "@types/node": "^20.0.0",
+    "@types/uuid": "^9.0.0",
+    "eslint": "^8.0.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hscheema1979/ultrapilot-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/hscheema1979/ultrapilot-plugin/issues"
+  },
+  "homepage": "https://github.com/hscheema1979/ultrapilot-plugin#readme"
+}

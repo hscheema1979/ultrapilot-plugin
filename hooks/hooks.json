@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/execution-enforcement.js\""
+          }
+        ],
+        "description": "Enforce code writes through UltraPilot or UltraWork orchestration"
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/tmux-reminder.js\""
+          }
+        ],
+        "description": "Suggest tmux for long-running commands (npm install, test, cargo build, docker, pytest, vitest, playwright)"
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/git-push-reminder.js\""
+          }
+        ],
+        "description": "Remind to review changes before git push"
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/doc-file-warning.js\""
+          }
+        ],
+        "description": "Warn about non-standard documentation files"
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/compact-suggester.js\""
+          }
+        ],
+        "description": "Suggest /compact after 50 tool calls for strategic context management"
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/todo-warning.js\""
+          }
+        ],
+        "description": "Warn when adding TODO/FIXME comments - prevents incomplete implementations"
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/mock-warning.js\""
+          }
+        ],
+        "description": "Warn when files contain mock implementations - prevents fake '100% complete'"
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/warning/completeness-check.js\""
+          }
+        ],
+        "description": "Check implementation completeness - catches TODOs, empty functions, not implemented errors"
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/transforming/auto-tmux-dev.js\""
+          }
+        ],
+        "description": "Auto-run dev servers (npm run dev, pnpm dev, yarn dev, bun run dev) in tmux for non-blocking execution"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/logging/observation-logger.js\""
+          }
+        ],
+        "description": "Log tool usage for continuous learning (async, non-blocking)"
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/ubuntu/.local/bin/ccbot hook",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
